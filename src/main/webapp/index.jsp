@@ -7,6 +7,7 @@
 <title>Feedback</title>
 </head>
 <body>
+<form action="done.jsp" method="post">
     <div class="xibox">
          <div class="xiluruk">
               <dl>
@@ -22,21 +23,23 @@
                   </dd>
                   <dd>
                       <span>用户ID</span>
-                      <input name="" type="text" class="xiwenbenk" placeholder="请输入您的ID（在设置页面可以确认您的ID）">
+                      <input name="uid" type="text" class="xiwenbenk" placeholder="请输入您的ID（在设置页面可以确认您的ID）">
                   </dd>
                   <dd>
                       <span>联系邮箱</span>
-                      <input name="" type="text" class="xiwenbenk" placeholder="sample@email.com">
+                      <input name="email" type="text" class="xiwenbenk" placeholder="sample@email.com">
                   </dd>
                   <dd>
                       <span>详细描述</span>
-                      <textarea name="" cols="" rows="" class="xiwenbenqy" placeholder="请输入详细描述。（１０００字以内）"></textarea>
+                      <textarea name="feedback" cols="" rows="" class="xiwenbenqy" placeholder="请输入详细描述。（１０００字以内）"></textarea>
                   </dd>
                   <dd>
-                      <input name="tijiao" type="button" value="提交"  class="querenk">
+                      <input type="submit" value="提交"  class="querenk">
+                      <input type="hidden" value='<%=request.getParameter("game")%>'/>
                   </dd>
               </dl>
          </div>
     </div>
+</form>    
 </body>
 </html>
