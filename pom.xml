@@ -16,7 +16,7 @@
   				<target>1.7</target>
   			</configuration>
   		</plugin>
-  		<plugin>
+<!--   		<plugin>
   			<groupId>org.codehaus.mojo</groupId>
   			<artifactId>native2ascii-maven-plugin</artifactId>
   			<version>1.0-alpha-1</version>
@@ -28,8 +28,8 @@
   						<goal>native2ascii</goal>
   					</goals>
   					<configuration>
-<!--   						<src>src/main/resources</src>
-  						<dest>target/classes</dest> -->
+  						<src>src/main/resources</src>
+  						<dest>target/classes</dest>
   						<encoding>UTF-8</encoding>
   						<includes>
   							<include>*.properties</include>
@@ -37,7 +37,7 @@
   					</configuration>
   				</execution>
   			</executions>
-  		</plugin>
+  		</plugin> -->
   	</plugins>
   </build>
   
