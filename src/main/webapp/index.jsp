@@ -1,5 +1,6 @@
 <!doctype html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.bt.service.Service" %>
 <html>
 <head>
 <meta charset="utf-8">
@@ -7,10 +8,14 @@
 <title>Feedback</title>
 </head>
 <body>
+<%
+String game = request.getParameter("game");
+Service service = new Service(game);
+%>
 <form action="done.jsp" method="post">
          <div class="xiluruk">
               <dl>
-                  <dt>神圣之链问题建议提交</dt>
+                  <dt><%=service.getMessage("title.game")%>问题建议提交</dt>
                   <dd>
                       <select name="category" class="xialak">
                         <option value="suggest">建议</option>
@@ -33,7 +38,7 @@
                   </dd>
                   <dd>
                       <input type="submit" value="提交"  class="querenk">
-                      <input type="hidden" value='<%=request.getParameter("game")%>'/>
+                      <input type="hidden" name="game" value='<%=request.getParameter("game")%>'/>
                   </dd>
               </dl>
          </div>
