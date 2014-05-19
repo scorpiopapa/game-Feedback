@@ -3,6 +3,7 @@ package com.bt.service;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -46,12 +47,17 @@ public class Service {
 			cat = OTHER;
 		}
 		
+		Connection conn = null;
+		
 		try {
 			Credential cred = getCredential(game);
-			if(cred == null) return;
+			if(cred == null) {
+				System.out.println("no data was inserted to DB for game " + game);
+				return;
+			}
 			
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn = DriverManager.getConnection(cred.url, cred.uid, cred.pwd);
+			conn = DriverManager.getConnection(cred.url, cred.uid, cred.pwd);
 			
 			Date date = Calendar.getInstance(TimeZone.getTimeZone("Asia/Shanghai")).getTime();
 			String sql = "INSERT INTO USER_FEEDBACK(USER_ID,CATEGORY,EMAIL,TEXT,CREATE_DATE) "
@@ -61,11 +67,18 @@ public class Service {
 			stmt.setString(2, cat);
 			stmt.setString(3, email);
 			stmt.setString(4, feedback);
-//			stmt.setDate(5, date);
+			stmt.setDate(5, new java.sql.Date(date.getTime()));
 			
-			
+			stmt.execute();
+			conn.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally{
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
