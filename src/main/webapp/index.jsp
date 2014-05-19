@@ -13,7 +13,6 @@
                   <dt>神圣之链问题建议提交</dt>
                   <dd>
                       <select name="category" class="xialak">
-                        <option value="title">请选择类型</option>
                         <option value="suggest">建议</option>
                         <option value="payment">充值问题</option>
                         <option value="account">帐号问题</option>
@@ -30,7 +29,7 @@
                   </dd>
                   <dd>
                       <span>详细描述</span>
-                      <textarea name="feedback" cols="" rows="" class="xiwenbenqy" placeholder="请输入详细描述。（１０００字以内）"></textarea>
+                      <textarea name="feedback" cols="" rows="" class="xiwenbenqy" placeholder="请输入详细描述。（2００字以内）"></textarea>
                   </dd>
                   <dd>
                       <input type="submit" value="提交"  class="querenk">

@@ -13,6 +13,8 @@ String uid = request.getParameter("uid");
 String email = request.getParameter("email");
 String feedback = request.getParameter("feedback");
 String game = request.getParameter("game");
+
+
 %>
 </body>
 </html>
