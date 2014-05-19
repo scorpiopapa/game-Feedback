@@ -8,7 +8,6 @@
 </head>
 <body>
 <form action="done.jsp" method="post">
-    <div class="xibox">
          <div class="xiluruk">
               <dl>
                   <dt>神圣之链问题建议提交</dt>
@@ -39,7 +38,6 @@
                   </dd>
               </dl>
          </div>
-    </div>
 </form>    
 </body>
 </html>

@@ -7,7 +7,7 @@ body { background:#2f6593;  }
 .xiluruk dt { float:left; display:block; width:99%; line-height:50px; font-size:20px; text-align:center; color:#FFF;  }
 .xiluruk dd { float:left; display:inline-block; font:14px; margin-top:6px; clear:both; }
 .xiluruk dd span { float:left; display:block; width:72px; color:#FFF; }
-.xiluruk dd .xialak { float:left; display:block; width:277px; margin-left:92px; padding:3px; border:none; background:#f2f2f2; border-radius:3px; }
+.xiluruk dd .xialak { float:left; display:block; width:277px; margin-left:auto; margin-right:auto; padding:3px; border:none; background:#f2f2f2; border-radius:3px; }
 .xiluruk dd .xiwenbenk { float:left; display:block; width:277px; margin-left:20px; padding:3px; border:none; background:#f2f2f2; border-radius:3px; }
 .xiluruk dd .xiwenbenqy { float:left; display:block; width:277px; margin-left:20px; height:50px; padding:3px; border:none; background:#f2f2f2; border-radius:3px; } 
 .xiluruk dd .querenk { float:left; display:block; width:77px; margin-left:92px; border:1px #006699 solid; border-radius:3px; line-height:30px; }
