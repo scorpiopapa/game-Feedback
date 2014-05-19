@@ -57,7 +57,12 @@ public class Service {
 			String sql = "INSERT INTO USER_FEEDBACK(USER_ID,CATEGORY,EMAIL,TEXT,CREATE_DATE) "
 					+ "VALUES(?,?,?,?,?)";
 			PreparedStatement stmt = conn.prepareStatement(sql);
-//			stmt.setInt(1, uid);
+			stmt.setInt(1, Integer.valueOf(uid));
+			stmt.setString(2, cat);
+			stmt.setString(3, email);
+			stmt.setString(4, feedback);
+//			stmt.setDate(5, date);
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
