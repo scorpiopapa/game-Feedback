@@ -101,15 +101,19 @@ public class Service {
 	Credential getCredential(String game){
 		Credential cred = new Credential();
 		
+		ResourceBundle props = ResourceBundle.getBundle("config." + game);
+		
 		if(DRAW_THE_SPEED.equals(game)){
 			cred.url = "jdbc:mysql://speed.cqv9bfjneaic.ap-northeast-1.rds.amazonaws.com:3306/speed?autoReconnect=true&useUnicode=true&characterEncoding=utf-8";
 			cred.uid = "awsuser";
 			cred.pwd = "mypassword";
 		}else if(HOLLY_CHAINS.equals(game)){
-//			cred.url = "jdbc:mysql://speed.cqv9bfjneaic.ap-northeast-1.rds.amazonaws.com:3306/holychains?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf-8";
-			cred.url = "jdbc:mysql://speed.cqv9bfjneaic.ap-northeast-1.rds.amazonaws.com:3306/holychains?autoReconnect=true&useUnicode=true&characterEncoding=utf-8";
-			cred.uid = "awsuser";
-			cred.pwd = "mypassword";
+//			cred.url = "jdbc:mysql://speed.cqv9bfjneaic.ap-northeast-1.rds.amazonaws.com:3306/holychains?autoReconnect=true&useUnicode=true&characterEncoding=utf-8";
+//			cred.uid = "awsuser";
+//			cred.pwd = "mypassword";
+			cred.url = props.getString("url");
+			cred.uid = props.getString("uid");
+			cred.pwd = props.getString("pwd");
 		}else{
 			cred = null;
 		}
