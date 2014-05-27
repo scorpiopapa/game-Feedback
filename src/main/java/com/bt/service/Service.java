@@ -16,6 +16,9 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.TimeZone;
 
+import com.amazonaws.auth.ClasspathPropertiesFileCredentialsProvider;
+import com.amazonaws.services.sns.AmazonSNSClient;
+
 public class Service {
 
 	final String DRAW_THE_SPEED = "speed";
@@ -82,6 +85,9 @@ public class Service {
 			stmt.setDate(5, new java.sql.Date(date.getTime()));
 			
 			stmt.execute();
+			
+			// send notice mail
+			
 //			conn.commit();
 		} catch (Exception e) {
 			String msg = "failed to save user feedback, game = {0}, uid = {1}, email = {2}, feedback = {3}";
@@ -98,25 +104,32 @@ public class Service {
 		}
 	}
 	
+	void sendMail(String title, String msg){
+		AmazonSNSClient client = new AmazonSNSClient(new ClasspathPropertiesFileCredentialsProvider());
+		client.publish("", msg);
+//		PublishRequest
+	}
+	
 	Credential getCredential(String game){
 		Credential cred = new Credential();
 		
 		ResourceBundle props = ResourceBundle.getBundle("config." + game);
+		cred.url = props.getString("url");
+		cred.uid = props.getString("uid");
+		cred.pwd = props.getString("pwd");
 		
-		if(DRAW_THE_SPEED.equals(game)){
-			cred.url = "jdbc:mysql://speed.cqv9bfjneaic.ap-northeast-1.rds.amazonaws.com:3306/speed?autoReconnect=true&useUnicode=true&characterEncoding=utf-8";
-			cred.uid = "awsuser";
-			cred.pwd = "mypassword";
-		}else if(HOLLY_CHAINS.equals(game)){
-//			cred.url = "jdbc:mysql://speed.cqv9bfjneaic.ap-northeast-1.rds.amazonaws.com:3306/holychains?autoReconnect=true&useUnicode=true&characterEncoding=utf-8";
+//		if(DRAW_THE_SPEED.equals(game)){
+//			cred.url = "jdbc:mysql://speed.cqv9bfjneaic.ap-northeast-1.rds.amazonaws.com:3306/speed?autoReconnect=true&useUnicode=true&characterEncoding=utf-8";
 //			cred.uid = "awsuser";
 //			cred.pwd = "mypassword";
-			cred.url = props.getString("url");
-			cred.uid = props.getString("uid");
-			cred.pwd = props.getString("pwd");
-		}else{
-			cred = null;
-		}
+//		}else if(HOLLY_CHAINS.equals(game)){
+////			cred.url = "jdbc:mysql://speed.cqv9bfjneaic.ap-northeast-1.rds.amazonaws.com:3306/holychains?autoReconnect=true&useUnicode=true&characterEncoding=utf-8";
+////			cred.uid = "awsuser";
+////			cred.pwd = "mypassword";
+//
+//		}else{
+//			cred = null;
+//		}
 		
 		return cred;
 	}
