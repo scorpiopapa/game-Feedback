@@ -16,8 +16,8 @@ String email = request.getParameter("email");
 String feedback = request.getParameter("feedback");
 String game = request.getParameter("game");
 
-Service service = new Service();
-service.saveFeedback(category, uid, email, new String(feedback.getBytes("ISO-8859-1"), "UTF-8"), game);
+Service service = new Service(game);
+service.processFeedback(category, uid, email, new String(feedback.getBytes("ISO-8859-1"), "UTF-8"), game);
 
 //String msg = new String(feedback.getBytes("ISO-8859-1"), "UTF-8");
 //out.print(msg);

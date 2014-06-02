@@ -32,15 +32,15 @@ Service service = new Service(game);
                   <dd>
                       <span>&nbsp;</span>
                       <select name="category" class="xiwenbenk">
-                        <option value="suggest">建议</option>
-                        <option value="payment">充值问题</option>
-                        <option value="account">帐号问题</option>
-                        <option value="other">其他问题</option>
+                        <option value="suggest"><%=service.getMessage("select.suggest")%></option>
+                        <option value="payment"><%=service.getMessage("select.payment")%></option>
+                        <option value="account"><%=service.getMessage("select.account")%></option>
+                        <option value="other"><%=service.getMessage("select.other")%></option>
                       </select>
                   </dd>
                   <dd>
                       <span>用户ID</span>
-                      <input id="uid" name="uid" type="number" class="xiwenbenk" maxlength="20" placeholder="请输入您的ID（在设置页面可以确认您的ID）">
+                      <input id="uid" name="uid" type="text" class="xiwenbenk" maxlength="10" placeholder="请输入您的ID（在设置页面可以确认您的ID）">
                   </dd>
                   <dd>
                       <span>联系邮箱</span>
