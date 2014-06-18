@@ -38,9 +38,9 @@ public class Service {
 	
 	public Service(){}
 	
-	public Service(String game){
+	public Service(String game, Locale locale){
 		try{
-			ResourceBundle props = ResourceBundle.getBundle(game, Locale.TRADITIONAL_CHINESE);
+			ResourceBundle props = ResourceBundle.getBundle(game, locale);
 			
 			Iterator<String> keys = props.keySet().iterator();
 			while(keys.hasNext()){
@@ -151,5 +151,10 @@ public class Service {
 		String url;
 		String uid;
 		String pwd;
+	}
+	
+	public static void main(String[] args){
+		System.out.println(Locale.PRC.toString());
+		System.out.println(Locale.CHINA.toString());
 	}
 }

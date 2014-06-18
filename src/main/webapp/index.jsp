@@ -1,6 +1,7 @@
 <!doctype html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="com.bt.service.Service" %>
+<%@ page import="java.util.Locale" %>
 <html>
 <head>
 <meta charset="utf-8">
@@ -21,8 +22,9 @@ function validate(){
 
 <body onsubmit="return validate();">
 <%
-String game = request.getParameter("game");
-Service service = new Service(game);
+//String game = request.getParameter("game");
+String game = "english";
+Service service = new Service(game, Locale.CHINA);
 %>
 <form action="ok.jsp" method="post">
     <!-- <div class="xibox"> -->
@@ -52,7 +54,8 @@ Service service = new Service(game);
                   </dd>
                   <dd>
                       <input type="submit" value="提交"  class="querenk">
-                      <input type="hidden" name="game" value='<%=request.getParameter("game")%>'/>
+                      <%-- <input type="hidden" name="game" value='<%=request.getParameter("game")%>'/> --%>
+                      <input type="hidden" name="game" value='<%=game%>'/>
                   </dd>
               </dl>
          </div>
