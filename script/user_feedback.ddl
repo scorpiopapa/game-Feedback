@@ -1,0 +1,9 @@
+CREATE TABLE `USER_FEEDBACK` (
+  `SID` int(11) NOT NULL AUTO_INCREMENT,
+  `USER_ID` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `CATEGORY` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `EMAIL` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `TEXT` varchar(1024) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CREATE_DATE` timestamp NOT NULL,
+  PRIMARY KEY (`SID`,`USER_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
